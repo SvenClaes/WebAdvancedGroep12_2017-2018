@@ -1,0 +1,9 @@
+
+Ge moet enkel in de APPLICATION folder werken. Alle andere files hebben met CodeIgniter te maken waar ge eigenlijk niks in moogt aanpassen!
+De folders die ge het vaakst gaat gebruiken zijn VIEWS, CONTROLLER, MODELS en soms CONFIG.
+
+MVC:
+- Model zorgt voor alle code die gebruikt wordt voor connectie met de database: Update, Input, Output, Delete...
+- View is alles wat de gebruiker kan zien van de website, dus enkel code die zorgt voor de opmaak van de website.
+- Controller is als brug tussen Model & View en voor de acties die men doet op de website, zoals inloggen, ergens op klikken enzo.
+
