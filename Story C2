@@ -1,0 +1,52 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Thomas Philipsen
+ * Date: 15/04/2018
+ * Time: 21:59
+ */
+
+class UpdateOrDeleteAnswer
+{
+    public function UpdateAnswer($token, $newAnswer)
+    {
+        $servername = "vagrant";
+        $username = "root";
+        $password = "root";
+        $dbname = "groepswerk";
+        try {
+            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            // set the PDO error mode to exception
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // statement to get all the locations
+            $statement = $conn->exec('UPDATE');
+
+            //print modified rows
+            print ("$statement row(s) modified");
+        } catch (PDOException $e) {
+            echo 'Exception:' . $e->getMessage();
+        }
+        $conn = null;
+    }
+
+    public function DeleteAnswer($token)
+    {
+        $servername = "vagrant";
+        $username = "root";
+        $password = "root";
+        $dbname = "groepswerk";
+        try {
+            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            // set the PDO error mode to exception
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // statement to get all the locations
+            $statement = $conn->exec('DELETE');
+
+            //print deleted rows
+            print ("$statement row(s) deleted");
+        } catch (PDOException $e) {
+            echo 'Exception:' . $e->getMessage();
+        }
+        $conn = null;
+    }
+}
