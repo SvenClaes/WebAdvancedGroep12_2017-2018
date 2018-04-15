@@ -96,6 +96,30 @@ class Locations
 
         $conn = null;
     }
+    
+    public function GetAllLocations()
+    {
+        $servername = "vagrant";
+        $username = "root";
+        $password = "root";
+        $dbname = "groepswerk";
+
+        try {
+            $pdo = new PDO( "mysql:host=$servername;dbname=$dbname",
+                $username, $password );
+            $pdo->setAttribute( PDO::ATTR_ERRMODE,
+                PDO::ERRMODE_EXCEPTION );
+            $statement = $pdo->query('SELECT name from locations');
+            $statement->setFetchMode(PDO::FETCH_ASSOC);
+            while($row = $statement->fetch()) {
+                print_r($row);
+            }
+        } catch ( PDOException $e ) {
+            print 'Exception!: ' . $e->getMessage();
+        }
+        $pdo = null;
+
+    }
 
 }
 
