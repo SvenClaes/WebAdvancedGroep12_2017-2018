@@ -1,6 +1,19 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: 11500391
+ * Date: 13/04/2018
+ * Time: 22:06
+ */
+
+
+
 class Locations
 {
+
+
+
+
     public function MakeLocation($name){
         $servername = "vagrant";
         $username = "root";
@@ -96,7 +109,7 @@ class Locations
                 $username, $password );
             $pdo->setAttribute( PDO::ATTR_ERRMODE,
                 PDO::ERRMODE_EXCEPTION );
-            $statement = $pdo->query('SELECT * from locaties');
+            $statement = $pdo->query('SELECT name from locations');
             $statement->setFetchMode(PDO::FETCH_ASSOC);
             while($row = $statement->fetch()) {
                 print_r($row);
@@ -105,5 +118,8 @@ class Locations
             print 'Exception!: ' . $e->getMessage();
         }
         $pdo = null;
+
     }
+
 }
+
