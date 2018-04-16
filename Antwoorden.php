@@ -92,4 +92,25 @@ class Antwoorden
         }
         $conn = null;
     }
+    public function UpdateAnswer($token, $newAnswer)
+    {
+        $servername = "vagrant";
+        $username = "root";
+        $password = "root";
+        $dbname = "groepswerk";
+        try {
+            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            // set the PDO error mode to exception
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // statement to get all the locations
+            $statement = $conn->exec('UPDATE');
+
+            //print modified rows
+            print ("$statement row(s) modified");
+        } catch (PDOException $e) {
+            echo 'Exception:' . $e->getMessage();
+        }
+        $conn = null;
+    }
+
  }
