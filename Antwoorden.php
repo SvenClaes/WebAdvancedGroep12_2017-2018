@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: joran
- * Date: 15/04/2018
- * Time: 12:41
- */
 class Antwoorden
 {
    public function DeleteAnswersPerLocation($locatieId)
@@ -72,5 +66,29 @@ class Antwoorden
             print 'Exception!: ' . $e->getMessage();
         }
         $pdo = null;
+    }
+   
+    public function SetAnswerOnLocation($location, $answer)
+    {
+        $servername = "vagrant";
+        $username = "root";
+        $password = "root";
+        $dbname = "groepswerk";
+        try {
+            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            // set the PDO error mode to exception
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // statement to insert the answer on the specific location
+            $statement=$conn->exec('INSERT');
+            //print all modified rows
+            print ("$statement row(s) modified");
+
+            // uniek token genereren?
+        }
+        catch(PDOException $e)
+        {
+            echo 'Exception:' . $e->getMessage();
+        }
+        $conn = null;
     }
  }
