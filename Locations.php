@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: 11500391
- * Date: 13/04/2018
- * Time: 22:06
- */
 class Locations
 {
     public function MakeLocation($name){
