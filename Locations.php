@@ -109,7 +109,7 @@ class Locations
                 $username, $password );
             $pdo->setAttribute( PDO::ATTR_ERRMODE,
                 PDO::ERRMODE_EXCEPTION );
-            $statement = $pdo->query('SELECT name from locations');
+            $statement = $pdo->query('SELECT name from locaties');
             $statement->setFetchMode(PDO::FETCH_ASSOC);
             while($row = $statement->fetch()) {
                 print_r($row);
