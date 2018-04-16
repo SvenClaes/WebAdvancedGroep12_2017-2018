@@ -79,7 +79,8 @@ class Antwoorden
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // statement to insert the answer on the specific location
-            $statement=$conn->exec('INSERT');
+            $statement=$conn->exec('INSERT INTO Locations (answer) WHERE location = $location
+            VALUE ($answer)');
             //print all modified rows
             print ("$statement row(s) modified");
 
